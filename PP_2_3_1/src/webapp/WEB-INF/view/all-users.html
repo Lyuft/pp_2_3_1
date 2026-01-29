@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -26,10 +25,12 @@
         <td th:text="${user.getDepartment()}"></td>
         <td th:text="${user.getSalary()}"></td>
         <td>
-            <form th:action="@{/updateInfo/{id}(id=${user.getId()})}" method="get" style="display: inline;">
+            <form th:action="@{/updateInfo}" method="get" style="display: inline;">
+                <input type="hidden" name="id" th:value="${user.getId()}"/>
                 <button type="submit" class="btn-update">Update</button>
             </form>
-            <form th:action="@{/deleteUser/{id}(id=${user.getId()})}" method="post" style="display: inline;">
+            <form th:action="@{/deleteUser}" method="post" style="display: inline;">
+                <input type="hidden" name="id" th:value="${user.getId()}"/>
                 <button type="submit" class="btn-delete">Delete</button>
             </form>
         </td>
